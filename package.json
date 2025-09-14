@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eslint_d": "^14.3.0",
+    "global": "^4.4.0"
+  }
+}
