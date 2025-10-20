@@ -15,7 +15,11 @@ return {
     { "<leader>kh", "<C-w>h", desc = "Navigate to left split" },
     { "<leader>kj", "<C-w>j", desc = "Navigate to bottom split" },
     { "<leader>kk", "<C-w>k", desc = "Navigate to top split" },
-    { "<leader>kl", "<C-w>l", desc = "Navigate to right split" }
+    { "<leader>kl", "<C-w>l", desc = "Navigate to right split" },
+    { "<leader>kw", "<C-w>|", desc = "Set the window width" },
+    { "<leader>ks", "<C-w>_", desc = "set the window height" },
+    { "<leader>ke", "<C-w>=", desc = "Equalize width and height of all windows" }
+
   },
 
   ---@module 'avante'
