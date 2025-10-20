@@ -22,24 +22,60 @@ return {
   ---@type avante.Config
   opts = {
     provider = "copilot",
+    auto_suggestions_provider = nil,
+    mode = "agentic",
     input = "snacks",
+    providers = {
+      copilot = {
+        proxy = nil, 
+        allow_insecure = false, 
+        timeout = 30000,
+        context_window = 32000, -- Number of tokens to send to the model for context
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 10240,
+        },
+      },
+    }
   },
 
   dependencies = {
     -- core runtime deps
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter", 
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
 
-    -- AI provider
-    "zbirenbaum/copilot.lua",
-
-    -- input UI
+    -- optional dependencies
+    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    "stevearc/dressing.nvim", -- input provider dressing
+    "folke/snacks.nvim", -- input provider snacks
+    "zbirenbaum/copilot.lua", -- copilot provider
     {
-      "folke/snacks.nvim",
+      -- Make sure to set this up properly if you have lazy=true
+      'MeanderingProgrammer/render-markdown.nvim',
       opts = {
-        -- default Snacks settings are fine, override here if needed
+        file_types = { 'markdown', 'Avante' },
       },
+      ft = { 'markdown', 'Avante' },
     },
   },
+
+  -- This is temporarily disabled while I'm figuring out the copilot access
+  --
+  -- config = function()
+  --   require('avante').setup {
+  --     -- system_prompt as function ensures LLM always has latest MCP server state
+  --     -- This is evaluated for every message, even in existing chats
+  --     system_prompt = function()
+  --       local hub = require('mcphub').get_hub_instance()
+  --       return hub and hub:get_active_servers_prompt() or ''
+  --     end,
+  --     -- Using function prevents requiring mcphub before it's loaded
+  --     custom_tools = function()
+  --       return {
+  --         require('mcphub.extensions.avante').mcp_tool(),
+  --       }
+  --     end,
+  --   }
+  -- end,
 }
