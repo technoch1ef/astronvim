@@ -17,9 +17,8 @@ return {
     { "<leader>kk", "<C-w>k", desc = "Navigate to top split" },
     { "<leader>kl", "<C-w>l", desc = "Navigate to right split" },
     { "<leader>kw", "<C-w>|", desc = "Set the window width" },
-    { "<leader>ks", "<C-w>_", desc = "set the window height" },
+    { "<leader>kt", "<C-w>_", desc = "set the window height" },
     { "<leader>ke", "<C-w>=", desc = "Equalize width and height of all windows" }
-
   },
 
   ---@module 'avante'
