@@ -60,6 +60,9 @@ return {
             completion = {
               limit = 50,
             },
+            diagnostics = {
+              disabled = { "macro-error" },
+            },
           },
         },
         -- Fix UTF-8/UTF-16 encoding mismatch with Copilot
