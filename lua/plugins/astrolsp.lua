@@ -52,7 +52,6 @@ return {
             },
             -- Only load workspace members
             cargo = {
-              allFeatures = false,
               buildScripts = {
                 enable = false,
               },
